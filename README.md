@@ -1,5 +1,7 @@
 # Concurrency in Go
 
+<img src="images/concurrency.jpg" alt="Concurrency Logo" width="400"/>
+
 This is a multipart series on Go Concurrency. Each directory will have it's own "runbook" to help you understand the code and get you up and running with concurrent tasks quickly in Go.
 
 ## Go Concurrency Scenarios

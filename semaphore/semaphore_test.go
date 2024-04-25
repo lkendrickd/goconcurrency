@@ -48,11 +48,11 @@ func TestWorkerWithSemaphore(t *testing.T) {
 				var isProcessed bool
 				tasks[i] = &semaphore.Task{
 					ID:          i + 1,
-					IsProcessed: &isProcessed,
+					IsProcessed: isProcessed,
 				}
 			}
 
-			worker := semaphore.NewWorkerWithSemaphore(tasks, tt.maxConcurrent)
+			worker := semaphore.New(tasks, tt.maxConcurrent)
 			startTime := time.Now()
 			worker.Work()
 
@@ -70,7 +70,7 @@ func TestWorkerWithSemaphore(t *testing.T) {
 			}
 
 			for _, task := range tasks {
-				if !*task.IsProcessed {
+				if !task.IsProcessed {
 					t.Errorf("Task %d was not processed", task.ID)
 				}
 			}
